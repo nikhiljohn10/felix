@@ -4,26 +4,23 @@
   "description": "Hapi Server in Typescript",
   "author": "Nikhil John",
   "license": "MIT",
-  "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
+  "main": "dist/server/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "node server",
     "test": "lab -a @hapi/code -L",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@hapi/boom": "9.x.x",
+    "@hapi/boom": "10.x.x",
     "@hapipal/haute-couture": "4.x.x",
     "hapi-swagger": "14.x.x",
     "joi": "17.x.x"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.x.x",
-    "@hapi/code": "8.x.x",
-    "@hapi/eslint-plugin": "6.x.x",
+    "@hapi/code": "9.x.x",
     "@hapi/glue": "8.x.x",
     "@hapi/hapi": "20.x.x",
     "@hapi/lab": "24.x.x",
@@ -33,8 +30,10 @@
     "@hapipal/toys": "3.x.x",
     "@types/hapi__hapi": "20.X.X",
     "@types/node": "18.X.X",
-    "dotenv": "8.x.x",
-    "eslint": "7.x.x",
+    "@typescript-eslint/eslint-plugin": "5.x.x",
+    "@typescript-eslint/parser": "5.x.x",
+    "dotenv": "16.x.x",
+    "eslint": "8.x.x",
     "exiting": "6.x.x",
     "typescript": "4.X.X"
   },
