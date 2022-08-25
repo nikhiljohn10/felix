@@ -1,0 +1,56 @@
+{
+  "name": "felix",
+  "version": "0.1.0",
+  "description": "Hapi Server in Typescript",
+  "author": "Nikhil John",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server",
+    "test": "lab -a @hapi/code -L",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@hapi/boom": "9.x.x",
+    "@hapipal/haute-couture": "4.x.x",
+    "hapi-swagger": "14.x.x",
+    "joi": "17.x.x"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "7.x.x",
+    "@hapi/code": "8.x.x",
+    "@hapi/eslint-plugin": "6.x.x",
+    "@hapi/glue": "8.x.x",
+    "@hapi/hapi": "20.x.x",
+    "@hapi/lab": "24.x.x",
+    "@hapipal/confidence": "6.x.x",
+    "@hapipal/hpal": "3.x.x",
+    "@hapipal/hpal-debug": "2.x.x",
+    "@hapipal/toys": "3.x.x",
+    "@types/hapi__hapi": "20.X.X",
+    "@types/node": "18.X.X",
+    "dotenv": "8.x.x",
+    "eslint": "7.x.x",
+    "exiting": "6.x.x",
+    "typescript": "4.X.X"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhiljohn10/felix.git"
+  },
+  "keywords": [
+    "hapi",
+    "server",
+    "typescript",
+    "rest",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/nikhiljohn10/felix/issues"
+  },
+  "homepage": "https://github.com/nikhiljohn10/felix#readme"
+}
