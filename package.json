@@ -9,11 +9,11 @@
     "dist"
   ],
   "scripts": {
-    "start": "node dist/server/index.js",
+    "start": "node dist/server",
     "build": "rm -rf dist && eslint . --ext .ts && npx tsc",
     "test": "lab --typescript",
     "lint": "eslint . --ext .ts --fix",
-    "dev": "npx nodemon --exec 'npx ts-node -- server/index.ts'"
+    "dev": "npx nodemon server/index.ts"
   },
   "dependencies": {
     "@hapi/boom": "10.x.x",
