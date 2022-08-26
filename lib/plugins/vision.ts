@@ -1,5 +1,5 @@
-import * as Inert from '@hapi/inert';
+import * as Vision from "@hapi/vision";
 
 export default {
-  plugin: Inert
+  plugin: Vision,
 };

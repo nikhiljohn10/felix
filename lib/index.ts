@@ -1,14 +1,10 @@
-'use strict';
-
-const HauteCouture = require('@hapipal/haute-couture');
-const Package = require('../package.json');
+import { Server, ServerOptions } from "@hapi/hapi";
+import HauteCouture from "@hapipal/haute-couture";
+import Package from "../package.json";
 
 exports.plugin = {
-    pkg: Package,
-    register: async (server, options) => {
-
-        // Custom plugin code can go here
-
-        await HauteCouture.compose(server, options);
-    }
+  pkg: Package,
+  register: async (server: Server, options: ServerOptions) => {
+    await HauteCouture.compose(server, options);
+  },
 };

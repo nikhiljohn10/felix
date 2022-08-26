@@ -9,12 +9,17 @@
     "dist"
   ],
   "scripts": {
-    "start": "node server",
-    "test": "lab -a @hapi/code -L",
-    "lint": "eslint ."
+    "start": "node dist/server/index.js",
+    "build": "rm -rf dist && eslint . --ext .ts && npx tsc",
+    "test": "lab --typescript",
+    "lint": "eslint . --ext .ts --fix",
+    "dev": "npx nodemon --exec 'npx ts-node -- server/index.ts'"
   },
   "dependencies": {
     "@hapi/boom": "10.x.x",
+    "@hapi/hoek": "10.x.x",
+    "@hapi/inert": "7.x.x",
+    "@hapi/vision": "7.x.x",
     "@hapipal/haute-couture": "4.x.x",
     "hapi-swagger": "14.x.x",
     "joi": "17.x.x"
@@ -28,13 +33,19 @@
     "@hapipal/hpal": "3.x.x",
     "@hapipal/hpal-debug": "2.x.x",
     "@hapipal/toys": "3.x.x",
+    "@types/hapi__glue": "6.x.x",
     "@types/hapi__hapi": "20.X.X",
+    "@types/hapi__inert": "5.x.x",
+    "@types/hapi__vision": "5.x.x",
+    "@types/hapipal__toys": "3.x.x",
     "@types/node": "18.X.X",
     "@typescript-eslint/eslint-plugin": "5.x.x",
     "@typescript-eslint/parser": "5.x.x",
     "dotenv": "16.x.x",
     "eslint": "8.x.x",
     "exiting": "6.x.x",
+    "nodemon": "2.x.x",
+    "ts-node": "10.x.x",
     "typescript": "4.X.X"
   },
   "repository": {
