@@ -1,5 +1,17 @@
 {
     "name": "@hapipal/haute-conture",
-    "version": "1.0.0",
-    "main": "index.d.js"
+    "description": "TypeScript type definitions for @hapipal/haute-couture",
+    "version": "0.0.1",
+    "main": "index.d.ts",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hapipal/types.git",
+        "directory": "types/haute-couture"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hapipal/types/issues"
+    },
+    "homepage": "https://github.com/hapipal/types/tree/main/types/haute-couture"
 }
