@@ -9,11 +9,13 @@
     "dist"
   ],
   "scripts": {
-    "start": "node dist/server",
-    "build": "rm -rf dist && eslint . --ext .ts && npx tsc",
     "test": "lab --typescript",
     "lint": "eslint . --ext .ts --fix",
-    "dev": "npx nodemon server/index.ts"
+    "dev": "npx nodemon server/index.ts",
+    "build": "rm -rf dist && npx tsc",
+    "start": "node dist/server",
+    "prod": "docker compose up -d --build",
+    "reset": "rm -rf package-lock.json node_modules dist"
   },
   "dependencies": {
     "@hapi/boom": "10.x.x",
@@ -46,7 +48,7 @@
     "exiting": "6.x.x",
     "nodemon": "2.x.x",
     "ts-node": "10.x.x",
-    "typescript": "4.X.X"
+    "typescript": "4.7.4"
   },
   "repository": {
     "type": "git",

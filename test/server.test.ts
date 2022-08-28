@@ -18,6 +18,6 @@ describe("Server Tests", () => {
   it("successfully start server", async () => {
     expect(server.type).to.equal("tcp");
     expect(server.settings.port).to.equal(manifest.server.port);
-    expect(["0.0.0.0", "localhost"]).to.include(server.settings.host);
+    expect(server.settings.host).to.equal(manifest.server.host);
   });
 });

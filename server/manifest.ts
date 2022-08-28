@@ -6,12 +6,20 @@ import Confidence from "@hapipal/confidence";
 import Toys from "@hapipal/toys";
 
 // Pull .env into process.env
-Dotenv.config({ path: path.resolve(__dirname + "/../.env") });
+Dotenv.config({ path: __dirname + "/../.env" });
 
 // Glue manifest as a confidence store
 export default new Confidence.Store({
   server: {
-    host: "localhost",
+    host: {
+      $filter: "NODE_ENV",
+      $default: "0.0.0.0",
+      production: {
+        $param: "HOST",
+        $default: "localhost",
+      },
+      test: "test.localhost",
+    },
     port: {
       $param: "PORT",
       $coerce: "number",

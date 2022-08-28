@@ -40,12 +40,16 @@ To run the felix server:
 npm start
 ```
 
+## Production
+
+For production server,
+```
+npm run prod
+```
+
 ## TODO
 
- - Production environment setup
- - Get 100% testing coverage
  - Add [Prisma Client](https://www.prisma.io/)
- - Add Docker support
  - Implement authentication
  - Implement typescript code generator
  - Optimise code and adopt all best practices

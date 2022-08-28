@@ -1,0 +1,15 @@
+node_modules/
+.vscode/
+docker/
+.git/
+dist/
+LICENSE
+README.md
+Dockerfile*
+npm-debug.log
+package-lock.json
+.dockerignore
+.gitignore
+.env-keep
+.git
+.env

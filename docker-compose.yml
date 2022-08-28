@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    image: felix:0.1.0
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+    networks:
+      - felix-network
+
+networks:
+  felix-network:
+    name: felix-network
