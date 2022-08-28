@@ -1,5 +1,4 @@
 import * as HapiSwagger from "hapi-swagger";
-
 import * as Package from "../../package.json";
 
 const swaggerOptions: HapiSwagger.RegisterOptions = {

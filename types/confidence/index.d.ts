@@ -1,6 +1,7 @@
 declare module "@hapipal/confidence" {
   import { Manifest } from "@hapi/glue";
 
+  
   export declare class Store {
     /**
      * @constructor

@@ -24,10 +24,8 @@ declare module "@hapipal/haute-couture" {
     ResponseToolkit,
     ServerRoute,
   } from "@hapi/hapi";
-
   import { ServerViewsConfiguration } from "@hapi/vision";
   import { ServerSubscriptionOptions } from "@hapi/nes";
-
   import {
     Service,
     ServiceFactory,
@@ -35,6 +33,7 @@ declare module "@hapipal/haute-couture" {
   } from "@hapipal/schmervice";
   import { ModelClass } from "@hapipal/schwifty";
   import { Root as Joi } from "joi";
+
 
   type OneOrArrayOf<T> = T | T[];
 

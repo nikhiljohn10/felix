@@ -1,14 +1,9 @@
-"use strict";
-
-import path from "path";
 import Dotenv from "dotenv";
 import Confidence from "@hapipal/confidence";
 import Toys from "@hapipal/toys";
 
-// Pull .env into process.env
 Dotenv.config({ path: __dirname + "/../.env" });
 
-// Glue manifest as a confidence store
 export default new Confidence.Store({
   server: {
     host: {

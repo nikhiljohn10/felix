@@ -8,7 +8,7 @@ interface User {
   name: string;
 }
 
-const validate_id = Joi.string().min(1).max(4)
+const validate_id = Joi.string().min(1).max(4);
 
 export const users: User[] = [
   {
@@ -62,9 +62,9 @@ export default [
       },
       validate: {
         query: Joi.object({
-          id: validate_id
-        })
-      }
+          id: validate_id,
+        }),
+      },
     },
   },
   {
@@ -80,7 +80,7 @@ export default [
       },
       validate: {
         params: Joi.object({
-          id: validate_id
+          id: validate_id,
         }),
       },
     },
