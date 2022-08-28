@@ -9,6 +9,13 @@ interface User {
   name: string;
 }
 
+interface Link {
+  title: string;
+  link: string;
+}
+
+type Links = { links: Link[] }
+
 interface InvalidOutput {
   statusCode: number;
   error: string;
@@ -29,12 +36,42 @@ describe("Route Test", () => {
     await server.stop();
   });
 
-  it("responds to get requests", async () => {
+  it("responds to root request", async () => {
     const response = await server.inject({
       method: "GET",
       url: "/",
     });
+     
+    const links = (response.result as Links).links
     expect(response.statusCode).to.equal(200);
+    expect(links).to.be.an.array()
+    expect(links).to.have.length(4)
+  });
+
+  it("responds to root request with undefined base url", async () => {
+    const response = await server.inject({
+      method: "GET",
+      url: "/",
+    });
+    
+    const links: Link[] = (response.result as Links).links
+    expect(process.env.BASE_URL).to.be.undefined()
+    for (const linkItem of links) {
+      expect(linkItem.link).to.startWith("http://localhost")
+    }
+  });
+
+  it("responds to root request with undefined base url", async () => {
+    process.env.BASE_URL = "http://test.localhost"
+    const response = await server.inject({
+      method: "GET",
+      url: "/",
+    });
+    const links: Link[] = (response.result as Links).links
+    expect(process.env.BASE_URL).to.be.equal("http://test.localhost")
+    for (const linkItem of links) {
+      expect(linkItem.link).to.startWith(process.env.BASE_URL)
+    }
   });
 
   it("responds to request for all users", async () => {
@@ -43,6 +80,9 @@ describe("Route Test", () => {
       url: "/user",
     });
     const output = response.result as User[];
+    expect(response.statusCode).to.equal(200);
+    expect(output).to.be.an.array()
+    expect(output).to.have.length(6)
     expect(output).to.equal(users);
   });
 

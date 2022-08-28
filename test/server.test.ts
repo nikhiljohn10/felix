@@ -1,11 +1,11 @@
-import { Server } from "@hapi/hapi";
 import Code from "@hapi/code";
+import { Server } from "@hapi/hapi";
 import Lab from "@hapi/lab";
-import { deployment } from "../server";
+import { deployment, manager } from "../server";
 import Manifest from "../server/manifest";
 
 const manifest = Manifest.get("/", process.env);
-const { describe, it, before } = (exports.lab = Lab.script());
+const { describe, it, before, after } = (exports.lab = Lab.script());
 const { expect } = Code;
 
 describe("Server Tests", () => {
@@ -15,9 +15,13 @@ describe("Server Tests", () => {
     server = await deployment({ start: true });
   });
 
-  it("successfully start server", async () => {
+  after(async () => {
+    await manager.stop();
+  });
+
+  it("successfully start server at default port", async () => {
     expect(server.type).to.equal("tcp");
     expect(server.settings.port).to.equal(manifest.server.port);
-    expect(server.settings.host).to.equal(manifest.server.host);
+    expect(server.info.host).to.equal("test.localhost");
   });
 });

@@ -3,34 +3,10 @@ import Manifest from "../../server/manifest";
 
 const manifest = Manifest.get("/", process.env);
 
-let port = manifest.server.port
-if (port != undefined) {
-  port = port in [80, 443] ? '' : `:${port}`
+function get_url() {
+  const base_url = process.env.BASE_URL || "http://localhost";
+  return base_url + ":" + manifest.server.port;
 }
-
-const base_url = process.env.BASE_URL || 'http://localhost'
-const url = base_url + port;
-
-const result = {
-  links: [
-    {
-      title: "User list",
-      link: url + "/user",
-    },
-    {
-      title: "Find user by query",
-      link: url + "/user?id=4",
-    },
-    {
-      title: "Find user by params",
-      link: url + "/user/6",
-    },
-    {
-      title: "API Documentation",
-      link: url + "/documentation",
-    },
-  ],
-};
 
 export default {
   method: "GET",
@@ -39,7 +15,26 @@ export default {
     tags: ["api"],
     notes: "Root page",
     handler: (request: Request, h: ResponseToolkit): ResponseObject => {
-      return h.response(result);
+      return h.response({
+        links: [
+          {
+            title: "User list",
+            link: get_url() + "/user",
+          },
+          {
+            title: "Find user by query",
+            link: get_url() + "/user?id=4",
+          },
+          {
+            title: "Find user by params",
+            link: get_url() + "/user/6",
+          },
+          {
+            title: "API Documentation",
+            link: get_url() + "/documentation",
+          },
+        ],
+      });
     },
   },
 };
