@@ -1,5 +1,3 @@
-"use strict";
-
 import Glue from "@hapi/glue";
 import Exiting from "exiting";
 import Manifest from "./manifest";
@@ -20,11 +18,11 @@ async function deployment({ start }: { start?: boolean } = {}) {
   return server;
 }
 
-if (require.main === module) {
+/* $lab:coverage:off$ */ if (require.main === module) {
   deployment({ start: true });
   process.on("unhandledRejection", (err: unknown) => {
     throw err;
   });
-}
+} /* $lab:coverage:on$ */
 
 export { deployment };
